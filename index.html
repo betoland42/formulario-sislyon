@@ -1,51 +1,171 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Solicitud de soporte | SISLYON</title>
-
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-    >
-
-    <link rel="stylesheet" href="styles.css">
-</head>
-
-<body>
-    <header class="text-center py-4">
-        <div class="container">
-            <h1>Solicitud de soporte técnico</h1>
-            <p>Cuéntanos qué necesita tu equipo y nos pondremos en contacto contigo.</p>
-        </div>
-    </header>
-
-    <main class="container my-5">
-        <section aria-labelledby="titulo-formulario">
-            <h2 id="titulo-formulario" class="text-center mb-4">
-                Registra tu solicitud
-            </h2>
-
-            <form id="formularioSoporte" novalidate>
-                <!-- En el siguiente paso agregaremos los campos -->
-            </form>
-        </section>
-    </main>
-
-    <footer class="text-center py-4">
-        <p>Proyecto realizado por Roberto Carrillo Pérez</p>
-
-        <a
-            href="https://github.com/"
-            target="_blank"
-            rel="noopener noreferrer"
+<form id="formularioSoporte" novalidate>
+    <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre completo</label>
+        <input
+            type="text"
+            class="form-control"
+            id="nombre"
+            name="nombre"
+            placeholder="Escribe tu nombre completo"
+            minlength="3"
+            required
         >
-            Mi perfil de GitHub
-        </a>
-    </footer>
+        <div class="invalid-feedback">
+            Escribe un nombre de al menos 3 caracteres.
+        </div>
+    </div>
 
-    <script src="script.js"></script>
-</body>
-</html>
+    <div class="mb-3">
+        <label for="correo" class="form-label">Correo electrónico</label>
+        <input
+            type="email"
+            class="form-control"
+            id="correo"
+            name="correo"
+            placeholder="ejemplo@correo.com"
+            required
+        >
+        <div class="invalid-feedback">
+            Ingresa un correo electrónico válido.
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="telefono" class="form-label">Teléfono</label>
+        <input
+            type="tel"
+            class="form-control"
+            id="telefono"
+            name="telefono"
+            placeholder="10 dígitos"
+            pattern="[0-9]{10}"
+            maxlength="10"
+            required
+        >
+        <div class="invalid-feedback">
+            Ingresa un teléfono de 10 dígitos.
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="servicio" class="form-label">Servicio requerido</label>
+        <select
+            class="form-select"
+            id="servicio"
+            name="servicio"
+            required
+        >
+            <option value="" selected disabled>Selecciona un servicio</option>
+            <option value="mantenimiento">Mantenimiento preventivo</option>
+            <option value="reparacion">Reparación de equipo</option>
+            <option value="windows">Instalación de Windows</option>
+            <option value="office">Instalación de Office</option>
+            <option value="redes">Configuración de redes</option>
+            <option value="actualizacion">Actualización de SSD o RAM</option>
+        </select>
+        <div class="invalid-feedback">
+            Selecciona el servicio que necesitas.
+        </div>
+    </div>
+
+    <fieldset class="mb-3">
+        <legend class="fs-6">Tipo de equipo</legend>
+
+        <div class="form-check">
+            <input
+                class="form-check-input"
+                type="radio"
+                name="equipo"
+                id="laptop"
+                value="Laptop"
+                required
+            >
+            <label class="form-check-label" for="laptop">Laptop</label>
+        </div>
+
+        <div class="form-check">
+            <input
+                class="form-check-input"
+                type="radio"
+                name="equipo"
+                id="escritorio"
+                value="Computadora de escritorio"
+                required
+            >
+            <label class="form-check-label" for="escritorio">
+                Computadora de escritorio
+            </label>
+        </div>
+
+        <div class="form-check">
+            <input
+                class="form-check-input"
+                type="radio"
+                name="equipo"
+                id="impresora"
+                value="Impresora"
+                required
+            >
+            <label class="form-check-label" for="impresora">Impresora</label>
+        </div>
+
+        <div class="form-check">
+            <input
+                class="form-check-input"
+                type="radio"
+                name="equipo"
+                id="otro"
+                value="Otro"
+                required
+            >
+            <label class="form-check-label" for="otro">Otro</label>
+            <div class="invalid-feedback">
+                Selecciona un tipo de equipo.
+            </div>
+        </div>
+    </fieldset>
+
+    <div class="mb-3">
+        <label for="descripcion" class="form-label">
+            Describe el problema
+        </label>
+        <textarea
+            class="form-control"
+            id="descripcion"
+            name="descripcion"
+            rows="4"
+            minlength="10"
+            placeholder="Explícanos qué sucede con tu equipo"
+            required
+        ></textarea>
+        <div class="invalid-feedback">
+            Describe el problema utilizando al menos 10 caracteres.
+        </div>
+    </div>
+
+    <div class="form-check mb-4">
+        <input
+            class="form-check-input"
+            type="checkbox"
+            id="terminos"
+            required
+        >
+        <label class="form-check-label" for="terminos">
+            Acepto los términos y condiciones
+        </label>
+        <div class="invalid-feedback">
+            Debes aceptar los términos para continuar.
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100">
+        Enviar solicitud
+    </button>
+
+    <div
+        id="mensajeResultado"
+        class="mt-4"
+        role="alert"
+        aria-live="polite"
+    ></div>
+</form>
