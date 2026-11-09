@@ -1,0 +1,211 @@
+/* Variables principales de la identidad SISLYON */
+:root {
+    --azul-noche: #071426;
+    --azul-profundo: #0d2748;
+    --azul-electrico: #1677ff;
+    --azul-claro: #5aa7ff;
+    --plata: #cbd5e1;
+    --gris-claro: #f1f5f9;
+    --blanco: #ffffff;
+    --texto: #142033;
+    --error: #dc3545;
+}
+
+/* Selector universal */
+* {
+    box-sizing: border-box;
+}
+
+/* Selectores de etiqueta */
+body {
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    color: var(--texto);
+    background:
+        radial-gradient(circle at top left, #dcecff 0, transparent 35%),
+        var(--gris-claro);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    padding: 4rem 1rem !important;
+    color: var(--blanco);
+    background: linear-gradient(
+        135deg,
+        var(--azul-noche),
+        var(--azul-profundo)
+    );
+    border-bottom: 4px solid var(--azul-electrico);
+    box-shadow: 0 8px 25px rgba(7, 20, 38, 0.25);
+}
+
+header h1 {
+    margin-bottom: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+header p {
+    max-width: 650px;
+    margin: 0 auto;
+    color: var(--plata);
+}
+
+main {
+    width: 100%;
+    max-width: 850px;
+    flex: 1;
+}
+
+main section {
+    padding: 2.5rem;
+    background-color: var(--blanco);
+    border: 1px solid #dbe4ee;
+    border-radius: 20px;
+    box-shadow: 0 18px 45px rgba(13, 39, 72, 0.12);
+}
+
+main h2 {
+    color: var(--azul-noche);
+    font-weight: 750;
+}
+
+/* Selector mediante identificador */
+#formularioSoporte {
+    margin-top: 2rem;
+}
+
+/* Selectores mediante clases */
+.form-label,
+legend {
+    color: var(--azul-profundo);
+    font-weight: 700;
+}
+
+.form-control,
+.form-select {
+    min-height: 48px;
+    border: 1px solid #b9c7d8;
+    border-radius: 10px;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+textarea.form-control {
+    min-height: 130px;
+    resize: vertical;
+}
+
+fieldset {
+    padding: 1.2rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 12px;
+    background-color: #f8fafc;
+}
+
+fieldset legend {
+    width: auto;
+    float: none;
+    padding: 0 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Selectores de atributo */
+input[type="radio"],
+input[type="checkbox"] {
+    cursor: pointer;
+}
+
+input[type="radio"]:checked,
+input[type="checkbox"]:checked {
+    background-color: var(--azul-electrico);
+    border-color: var(--azul-electrico);
+}
+
+/* Pseudoclases */
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--azul-electrico);
+    box-shadow: 0 0 0 0.25rem rgba(22, 119, 255, 0.18);
+}
+
+.btn-primary {
+    min-height: 50px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(
+        90deg,
+        var(--azul-electrico),
+        #075ac8
+    );
+    font-size: 1.05rem;
+    font-weight: 700;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(
+        90deg,
+        #075ac8,
+        var(--azul-electrico)
+    );
+    box-shadow: 0 10px 20px rgba(22, 119, 255, 0.25);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+footer {
+    margin-top: 2rem;
+    padding: 2rem 1rem !important;
+    color: var(--plata);
+    background-color: var(--azul-noche);
+    border-top: 3px solid var(--azul-electrico);
+}
+
+footer p {
+    margin-bottom: 0.5rem;
+}
+
+footer a {
+    color: var(--azul-claro);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: var(--blanco);
+    text-decoration: underline;
+}
+
+/* Diseño adaptable para celulares */
+@media (max-width: 576px) {
+    header {
+        padding: 2.8rem 1rem !important;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    main {
+        margin-top: 2rem !important;
+        padding: 0 0.75rem;
+    }
+
+    main section {
+        padding: 1.5rem;
+        border-radius: 14px;
+    }
+
+    main h2 {
+        font-size: 1.6rem;
+    }
+}
